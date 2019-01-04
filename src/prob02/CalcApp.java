@@ -13,5 +13,34 @@ public class CalcApp {
 		String operation = scanner.next();
 		
 		/* operation에 따라 4칙 연산 객체를 생성하고 caculate 메서드를 호출합니다. */
+		Arithmetic arith;
+		
+		switch (operation) {
+		case "+":
+			arith = new Add();
+			break;
+		case "-":
+			arith = new Sub();
+			break;
+		case "*":
+			arith = new Mul();
+			break;
+		case "/":
+			arith = new Div();
+			break;
+
+		default:
+			arith = null;
+			System.out.println("잘못된 연산자 입니다.");
+			break;
+		}
+
+		if(arith != null)
+		{
+			System.out.println();
+			System.out.println(arith.calculate(a, b));
+		}
+		
+		scanner.close();
 	}
 }

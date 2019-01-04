@@ -22,8 +22,18 @@ public class LoginMain {
 		/*
 		 *  로그인 처리 부분을 완성 합니다.
 		 */
+		User user = new User(id, password);
 		
-
+		try {
+			login(joinUsers, user);
+			System.out.println("로그인 성공");
+		} catch (UserNotFoundException e) {
+			System.out.println(e.getMessage());
+		} catch (PasswordDismatchException e) {
+			System.out.println(e.getMessage());
+		}
+		
+		scanner.close();
 	}
 	
 	public static void login(List<User> users, User user ) throws UserNotFoundException, PasswordDismatchException {
